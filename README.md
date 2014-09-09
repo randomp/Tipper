@@ -16,13 +16,17 @@ Additional user stories:
  * [x] Additional: Add a "Feel Awesome" Button. By clicking that, it will randomly generate a tip rate between 20% and 30%.
  * [x] Additional: Add a new new to show the amount divided by 2, 3, and 4 people. It will disappear when user enters and appear when user finishes entering.
  
- 
+Walkthrough of all user stories:
+
+
  
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 
 ## Acknowledge
 
-[Nick Hodapp](https://github.com/TomSwift) for the [TSCurrencyTextField](https://github.com/TomSwift/TSCurrencyTextField).
+This app leverages two third-party libraries:
 
-FaceBook [POP](https://github.com/facebook/pop).
+ * [Nick Hodapp](https://github.com/TomSwift) for the [TSCurrencyTextField](https://github.com/TomSwift/TSCurrencyTextField).
+
+ * FaceBook [POP](https://github.com/facebook/pop).
