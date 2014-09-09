@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TipViewController.h"
 
 @interface AppDelegate ()
 
@@ -28,10 +29,26 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSDate *now = [NSDate date];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:now forKey:@"lastTime"];
+    [defaults synchronize];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *last = [defaults objectForKey:@"lastTime"];
+    NSDate *now = [NSDate date];
+    NSTimeInterval interval = [now timeIntervalSinceDate:last];
+    if (interval > 1) {
+        UINavigationController *navC = (UINavigationController*) self.window.rootViewController;
+        TipViewController *tipVC = (TipViewController*) [[navC viewControllers] objectAtIndex:0];
+        tipVC.aaView.hidden = YES;
+        tipVC.billTextField.amount = @0.00;
+        tipVC.tipLabel.text = [tipVC.billTextField.currencyNumberFormatter stringFromNumber:[NSNumber numberWithFloat:0.00]];
+        tipVC.totalLabel.text = [tipVC.billTextField.currencyNumberFormatter stringFromNumber:[NSNumber numberWithFloat:0.00]];
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
