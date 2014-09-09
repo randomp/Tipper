@@ -41,7 +41,7 @@
     NSDate *last = [defaults objectForKey:@"lastTime"];
     NSDate *now = [NSDate date];
     NSTimeInterval interval = [now timeIntervalSinceDate:last];
-    if (interval > 1) {
+    if (interval > 10*60) {
         UINavigationController *navC = (UINavigationController*) self.window.rootViewController;
         TipViewController *tipVC = (TipViewController*) [[navC viewControllers] objectAtIndex:0];
         tipVC.aaView.hidden = YES;
