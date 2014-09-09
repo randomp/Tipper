@@ -19,6 +19,8 @@ Additional user stories:
 Walkthrough of all user stories:
 
 ![Video Walkthrough](tipper_demo.gif)
+
+In the demo, the amount will be cleared after entering foreground from background. That is for demo use and the real cycle is set to 10 minutes. That means after staying in background for more than 10 minutes, it will be cleared. If less than 10 minutes, it will keep the last amount.
  
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
