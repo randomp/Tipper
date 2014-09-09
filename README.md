@@ -23,4 +23,5 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 ## Acknowledge
 
 Nick Hodapp for the [TSCurrencyTextField](https://github.com/TomSwift/TSCurrencyTextField).
+
 FaceBook [POP](https://github.com/facebook/pop).
