@@ -14,9 +14,6 @@
 #import <TSCurrencyTextField/TSCurrencyTextField.h>
 
 @interface TipViewController () <UITextFieldDelegate>
-//@property (strong, nonatomic) IBOutlet TSCurrencyTextField *billTextField;
-//@property (strong, nonatomic) IBOutlet UILabel *tipLabel;
-//@property (strong, nonatomic) IBOutlet UILabel *totalLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *tipSegControl;
 @property (strong, nonatomic) IBOutlet UIButton *awesomeButton;
 @property (nonatomic) NSInteger roundingMode;
@@ -24,7 +21,6 @@
 - (IBAction)onTap:(id)sender;
 - (IBAction)feelAwesomeButtonClicked:(UIButton *)sender;
 -(void)updateValues:(float)rate;
-//-(float)getRateFromSeg;
 -(void)getRateFromSeg;
 @end
 
@@ -34,30 +30,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"view did load");
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(onSettingsButton)];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    /*NSDate *lastLaunch = [defaults objectForKey:@"lastLaunch"];
-    NSDate *now = [NSDate date];
-    NSTimeInterval interval= [now timeIntervalSinceDate:lastLaunch];
-    if (interval > 10) {
-        self.billTextField.amount = @0.00;
-    }
-    [defaults setObject:now forKey:@"lastLaunch"];*/
     self.roundingMode = [defaults integerForKey:@"rounding"];
     self.tipSegControl.selectedSegmentIndex = 0;
     [self getRateFromSeg];
     _billTextField.amount = @0.00;
-    //self.billTextField.keyboardType = UIKeyboardTypeNumberPad;
     [[self.awesomeButton layer] setBorderWidth:1.0f];
     [[self.awesomeButton layer] setBorderColor:[UIColor blueColor].CGColor];
     _aaView.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"view will appear.");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.roundingMode = [defaults integerForKey:@"rounding"];
     [self updateValues:self.rate];
@@ -110,6 +96,7 @@
 }
 
 // generate a rate between 20% to 30%
+// TODO: ask to save the restaurant name
 - (IBAction)feelAwesomeButtonClicked:(UIButton *)sender {
     //animate button
     [self.view endEditing:YES];

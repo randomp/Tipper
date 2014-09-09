@@ -9,10 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface SettingsViewController : UIViewController {
-    //NSArray *currencyArray;
-    //UIPickerView *currencyPicker ;
-    //UIToolbar *currencyPickerToolbar;
-}
+@interface SettingsViewController : UIViewController
 
 @end
